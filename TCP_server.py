@@ -1,31 +1,18 @@
 import socket
-import json
 
-class Server:
-    def __init__(self):
-        self.host='0.0.0.0'
-        self.port=12345
-        self.data=''
+def start_server(host, port):
+    # 서버 소켓 생성
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.bind((host, port))
+    server_socket.listen(1)  # 최대 1개의 연결까지 대기
 
-    def run_server(self):
-        server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        server_socket.bind((self.host, self.port))
-        server_socket.listen(5)
-        client_socket, addr = server_socket.accept()
+    print("서버가 시작되었습니다. 대기 중...")
 
-        try:
-            while True:
-                received_data = client_socket.recv(1024)
-                if not received_data:
-                    break
-                
-                self.data=json.loads(received_data.decode())
-                print("Received data:", self.data)
+    return server_socket
 
-        except KeyboardInterrupt:
-            print('서버 종료')
+def accept_client(server_socket):
+    # 클라이언트 연결 대기
+    client_socket, client_address = server_socket.accept()
+    print(f"클라이언트가 연결되었습니다. 주소: {client_address}")
 
-        finally:
-            client_socket.close()
-
-
+    return client_socket
