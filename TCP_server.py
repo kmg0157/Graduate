@@ -1,18 +1,22 @@
 import socket
 
-def start_server(host, port):
-    # 서버 소켓 생성
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind((host, port))
-    server_socket.listen(1)  # 최대 1개의 연결까지 대기
+class Server:
+    def __init__(self):
+        self.host='192.168.0.151'
+        self.port=12345
+        self.server_socket=None
+        self.client_socket=None
+        
+    def start_server(self):
+        # 서버 소켓 생성
+        self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.server_socket.bind((self.host, self.port))
+        self.server_socket.listen()  # 최대 1개의 연결까지 대기
 
-    print("서버가 시작되었습니다. 대기 중...")
+        print("서버가 시작되었습니다. 대기 중...")
 
-    return server_socket
+    def accept_socket(self):
+        self.client_socket, client_address = self.server_socket.accept()
+        print(f"클라이언트가 연결되었습니다. 주소: {client_address}")
 
-def accept_client(server_socket):
-    # 클라이언트 연결 대기
-    client_socket, client_address = server_socket.accept()
-    print(f"클라이언트가 연결되었습니다. 주소: {client_address}")
-
-    return client_socket
+            
