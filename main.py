@@ -1,15 +1,19 @@
 from gps_data_collector import data_collector
 from json_file import write_json
 from TCP_client import Client
+from camera import Video
 import time
 import json
 
 def main():
     gps_data = data_collector() #gps 데이터 받는 객체 생성
-    json_writer = write_json('/home/pi/Desktop/GPS/newoutput.json') #json 파일 객체 생성
+    json_writer = write_json('/home/kang/Desktop/project/newoutput.json') #json 파일 객체 생성
     client_socket=Client()  #TCP 소켓 객체 생성
     client_socket.accept()  #TCP 서버 연결 요청
+    #동영상 촬영부분
+    #crash_video=Video()
 
+    #충돌 감지 시
     try:
         print("Application started!")
         json_writer.initialize_json_file()  #json 파일 초기화 및 생성
@@ -32,6 +36,10 @@ def main():
         time.sleep(3)
 
     json_writer.close_json_file()   #json 파일 닫기
+
+    #동영상 촬영
+    #crash_video.recording()
+
 
 if __name__ == "__main__":
     main()
