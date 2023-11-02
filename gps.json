@@ -1,186 +1,96 @@
 [{
     "Sequence": 1,
-    "Timestamp": 1698579883,
-    "Latitude": 36.624983333,
-    "Longitude": 127.458263333
+    "Timestamp": 1698660352,
+    "Latitude": 36.625058333,
+    "Longitude": 127.458136667
 },
 {
     "Sequence": 2,
-    "Timestamp": 1698579885,
-    "Latitude": 36.624981667,
-    "Longitude": 127.458271667
+    "Timestamp": 1698660353,
+    "Latitude": 36.625041667,
+    "Longitude": 127.458165
 },
 {
     "Sequence": 3,
-    "Timestamp": 1698579886,
-    "Latitude": 36.624981667,
-    "Longitude": 127.458276667
+    "Timestamp": 1698660354,
+    "Latitude": 36.625101667,
+    "Longitude": 127.45812
 },
 {
     "Sequence": 4,
-    "Timestamp": 1698579887,
-    "Latitude": 36.62498,
-    "Longitude": 127.458283333
+    "Timestamp": 1698660356,
+    "Latitude": 36.625101667,
+    "Longitude": 127.458123333
 },
 {
     "Sequence": 5,
-    "Timestamp": 1698579888,
-    "Latitude": 36.624978333,
-    "Longitude": 127.458293333
+    "Timestamp": 1698660357,
+    "Latitude": 36.625103333,
+    "Longitude": 127.458121667
 },
 {
     "Sequence": 6,
-    "Timestamp": 1698579889,
-    "Latitude": 36.624975,
-    "Longitude": 127.4583
+    "Timestamp": 1698660358,
+    "Latitude": 36.625101667,
+    "Longitude": 127.458123333
 },
 {
     "Sequence": 7,
-    "Timestamp": 1698579892,
-    "Latitude": 36.624973333,
-    "Longitude": 127.458301667
+    "Timestamp": 1698660359,
+    "Latitude": 36.625103333,
+    "Longitude": 127.458123333
 },
 {
     "Sequence": 8,
-    "Timestamp": 1698579893,
-    "Latitude": 36.624973333,
-    "Longitude": 127.458303333
+    "Timestamp": 1698660360,
+    "Latitude": 36.625101667,
+    "Longitude": 127.458125
 },
 {
     "Sequence": 9,
-    "Timestamp": 1698579894,
-    "Latitude": 36.624973333,
-    "Longitude": 127.458305
+    "Timestamp": 1698660362,
+    "Latitude": 36.625105,
+    "Longitude": 127.458125
 },
 {
     "Sequence": 10,
-    "Timestamp": 1698579895,
-    "Latitude": 36.624973333,
-    "Longitude": 127.458306667
+    "Timestamp": 1698660363,
+    "Latitude": 36.625106667,
+    "Longitude": 127.458123333
 },
 {
     "Sequence": 11,
-    "Timestamp": 1698579896,
-    "Latitude": 36.624973333,
-    "Longitude": 127.458308333
+    "Timestamp": 1698660364,
+    "Latitude": 36.625106667,
+    "Longitude": 127.458126667
 },
 {
     "Sequence": 12,
-    "Timestamp": 1698579898,
-    "Latitude": 36.624973333,
-    "Longitude": 127.45831
+    "Timestamp": 1698660365,
+    "Latitude": 36.625108333,
+    "Longitude": 127.458125
 },
 {
     "Sequence": 13,
-    "Timestamp": 1698579899,
-    "Latitude": 36.624973333,
-    "Longitude": 127.458311667
+    "Timestamp": 1698660366,
+    "Latitude": 36.625106667,
+    "Longitude": 127.458125
 },
 {
     "Sequence": 14,
-    "Timestamp": 1698579900,
-    "Latitude": 36.624973333,
-    "Longitude": 127.458311667
+    "Timestamp": 1698660368,
+    "Latitude": 36.625105,
+    "Longitude": 127.458125
 },
 {
     "Sequence": 15,
-    "Timestamp": 1698579901,
-    "Latitude": 36.624973333,
-    "Longitude": 127.458311667
+    "Timestamp": 1698660369,
+    "Latitude": 36.625105,
+    "Longitude": 127.458123333
 },
 {
     "Sequence": 16,
-    "Timestamp": 1698579902,
-    "Latitude": 36.624971667,
-    "Longitude": 127.458313333
-},
-{
-    "Sequence": 17,
-    "Timestamp": 1698579904,
-    "Latitude": 36.624971667,
-    "Longitude": 127.458313333
-},
-{
-    "Sequence": 18,
-    "Timestamp": 1698579905,
-    "Latitude": 36.624971667,
-    "Longitude": 127.458313333
-},
-{
-    "Sequence": 19,
-    "Timestamp": 1698579906,
-    "Latitude": 36.624971667,
-    "Longitude": 127.458315
-},
-{
-    "Sequence": 20,
-    "Timestamp": 1698579907,
-    "Latitude": 36.624971667,
-    "Longitude": 127.458315
-},
-{
-    "Sequence": 21,
-    "Timestamp": 1698579908,
-    "Latitude": 36.624971667,
-    "Longitude": 127.458316667
-},
-{
-    "Sequence": 22,
-    "Timestamp": 1698579910,
-    "Latitude": 36.624971667,
-    "Longitude": 127.458316667
-},
-{
-    "Sequence": 23,
-    "Timestamp": 1698579911,
-    "Latitude": 36.624971667,
-    "Longitude": 127.458316667
-},
-{
-    "Sequence": 24,
-    "Timestamp": 1698579912,
-    "Latitude": 36.62497,
-    "Longitude": 127.458316667
-},
-{
-    "Sequence": 25,
-    "Timestamp": 1698579913,
-    "Latitude": 36.62497,
-    "Longitude": 127.458318333
-},
-{
-    "Sequence": 26,
-    "Timestamp": 1698579914,
-    "Latitude": 36.62497,
-    "Longitude": 127.458318333
-},
-{
-    "Sequence": 27,
-    "Timestamp": 1698579916,
-    "Latitude": 36.62497,
-    "Longitude": 127.458318333
-},
-{
-    "Sequence": 28,
-    "Timestamp": 1698579917,
-    "Latitude": 36.62497,
-    "Longitude": 127.45832
-},
-{
-    "Sequence": 29,
-    "Timestamp": 1698579918,
-    "Latitude": 36.624968333,
-    "Longitude": 127.458321667
-},
-{
-    "Sequence": 30,
-    "Timestamp": 1698579919,
-    "Latitude": 36.624968333,
-    "Longitude": 127.458323333
-},
-{
-    "Sequence": 31,
-    "Timestamp": 1698579920,
-    "Latitude": 36.624966667,
-    "Longitude": 127.458323333
+    "Timestamp": 1698660370,
+    "Latitude": 36.625108333,
+    "Longitude": 127.458121667
 }]
