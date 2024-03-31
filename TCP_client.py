@@ -11,9 +11,8 @@ class Client:
         self.client_socket.connect((self.host, self.port))  #클라이언트 소켓을 서버에 접속 요청
 
     def run_client(self,data):  #클라이언트 실행 함수
-        try:
-            self.client_socket.sendall(data)    #데이터를 서버로 전송
-            
-        except KeyboardInterrupt:   #키보드 인터럽트 발생 시(ctrl+c)
+        self.client_socket.sendall(data)    #데이터를 서버로 전송
+    
+        if data=='CLOSE':   #키보드 인터럽트 발생 시(ctrl+c)
             print('close socket')
             self.client_socket.close()  #클라이언트 소켓 종료
