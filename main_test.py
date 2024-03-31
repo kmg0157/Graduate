@@ -11,7 +11,6 @@ def main():
     json_writer = write_json('/home/kang/Desktop/project/newoutput.json') #json 파일 객체 생성
     client_socket=Client()  #TCP 소켓 객체 생성
     client_socket.accept()  #TCP 서버 연결 요청
-    
 
     #충돌 감지 시
     if crash_sensor.crash_detection()==1:
