@@ -24,6 +24,3 @@ class Database:
         self.conn.commit()  #테이블 변경사항 저장
         self.cur.close()    #커서 종료
         self.conn.close()   #DB 접속 종료
-
-
-

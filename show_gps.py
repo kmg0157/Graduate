@@ -1,6 +1,5 @@
 import folium
 import json
-import webbrowser
 
 class Map:
     def __init__(self):
@@ -17,6 +16,4 @@ class Map:
     def show_map(self):       
         self.locate=folium.Map(location=[self.latitude,self.longitude],zoom_start=18)
         folium.Marker([self.latitude,self.longitude], popup='사고 발생 위치!').add_to(self.locate)        
-        
         self.locate.save(self.save_html_file)
-        webbrowser.open(self.save_html_file)
