@@ -5,6 +5,7 @@ class Database:
     def __init__(self):
         self.conn=None
         self.cur=None
+        self.sequence=0
 
     # 생성해둔 DB 접속
     def connect_db(self):
