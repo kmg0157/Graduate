@@ -7,7 +7,7 @@ def main():
     TCP_server = Server()   #서버 소켓 객체 생성
     write_data=write_json() #json 파일 객체 생성
     save_db=Database()  #DB 저장 객체 생성
-    m=Map()
+    map_generator=Map()
 
     write_data.open_file()    #json 파일 열기
     TCP_server.start_server()   #서버 소켓 생성
@@ -27,8 +27,8 @@ def main():
                 write_data.save_data(decoded_data)  #전달받은 데이터 json 파일에 작성
                 save_db.save_data(decoded_data) #DB에 데이터 저장
                 if mark<1:
-                    m.read_data(decoded_data)
-                    m.show_map()
+                    map_generator.read_data(decoded_data)
+                    map_generator.show_map()
                     mark+=1
 
     finally: 
