@@ -14,8 +14,6 @@ def main():
     TCP_server.accept_socket()  #클라이언트와 연결 수립
     save_db.connect_db()    #DB 연결
 
-    mark=0
-
     try:
         while True:        
             data = TCP_server.client_socket.recv(1024)  #클라이언트로부터 최대 1024bytes 데이터 받기
