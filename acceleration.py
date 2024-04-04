@@ -3,63 +3,80 @@ import time
 import matplotlib.pyplot as plt
 
 # MPU6050 레지스터 주소
-power_mgmt_1 = 0x6b
-accel_x_out = 0x3b
-accel_y_out = 0x3d
-# accel_z_out = 0x3f  # Z 축 제거
+class Acceleration():
+    def __init__(self):
+        self.power_mgmt_1=0x6b
+        self.accel_x_out = 0x3b
+        self.accel_y_out = 0x3d
+        self.x_data=[]
+        self.y_data=[]
+        # I2C 버스 생성
+        self.bus = smbus.SMBus(1)
+    
+    # 센서 초기화
+    def init_sensor(self):
+        self.bus.write_byte_data(0x68, self.power_mgmt_1, 0)
+    
+    # 가속도 값 읽기
+    def read_accel(self):
+        def read_word(reg):
+            high = self.bus.read_byte_data(0x68, reg)
+            low = self.bus.read_byte_data(0x68, reg+1)
+            val = (high << 8) + low
+            return val if val < 0x8000 else val - 65536
 
-# I2C 버스 생성
-bus = smbus.SMBus(1)  # Raspberry Pi에서는 1번을 사용합니다. 만약 0번을 사용하는 경우, 0으로 변경합니다.
+        accel_x = read_word(self.accel_x_out)
+        accel_y = read_word(self.accel_y_out)
 
-# 센서 초기화
-def init_sensor():
-    bus.write_byte_data(0x68, power_mgmt_1, 0)
+        return accel_x, accel_y
 
-# 가속도 값 읽기
-def read_accel():
-    def read_word(reg):
-        high = bus.read_byte_data(0x68, reg)
-        low = bus.read_byte_data(0x68, reg+1)
-        val = (high << 8) + low
-        return val if val < 0x8000 else val - 65536
+    # 데이터 저장
+    def save_data(self):
+        start_time=time.time()
 
-    accel_x = read_word(accel_x_out)
-    accel_y = read_word(accel_y_out)
-    # accel_z = read_word(accel_z_out)  # Z 축 제거
+        try:
+            while time.time()-start_time<10:
+                self.accel_x_out,self.accel_y_out=self.read_accel()
+                print(f"Accelerometer: X={self.accel_x}, Y={self.accel_y}")
 
-    return accel_x, accel_y  # Z 축 제거
+                # 데이터 저장
+                self.x_data.append(self.accel_x)
+                self.y_data.append(self.accel_y)
 
-# 메인 함수
-def main():
-    init_sensor()
+                time.sleep(0.1)  # 0.1초마다 데이터 샘플링
 
-    # 데이터 저장 리스트
-    x_data = []
-    y_data = []
+        except KeyboardInterrupt:
+            pass  # Ctrl+C 입력시 종료
 
-    start_time = time.time()  # 시작 시간
+    # 그래프를 이미지 파일로 저장
+    def show_data(self):
+        plt.plot(self.x_data, label='X-Axis')
+        plt.plot(self.y_data, label='Y-Axis')
+        plt.xlabel('Time')
+        plt.ylabel('Acceleration')
+        plt.legend()
+        plt.savefig('acceleration_graph.png')  
 
-    try:
-        while time.time() - start_time < 10:  # 10초 동안 데이터 읽기
-            accel_x, accel_y = read_accel()
-            print(f"Accelerometer: X={accel_x}, Y={accel_y}")
 
-            # 데이터 저장
-            x_data.append(accel_x)
-            y_data.append(accel_y)
+    #가속도 값을 이용한 충격 감지(수정 필요)
+    def detect_collision(self,threshold=5000, duration=5):
+        self.init_sensor()
+        start_time = time.time()
 
-            time.sleep(0.1)  # 0.1초마다 데이터 샘플링
+        accel_x_prev, accel_y_prev = self.read_accel()
+        while time.time() - start_time < duration:
+            accel_x, accel_y = self.read_accel()
+            
+            # 가속도 변화량 계산
+            delta_x = abs(accel_x - accel_x_prev)
+            delta_y = abs(accel_y - accel_y_prev)
 
-    except KeyboardInterrupt:
-        pass  # Ctrl+C 입력시 종료
+            # 가속도 변화량이 임계값을 초과하는지 확인
+            if delta_x > threshold or delta_y > threshold:
+                print("Collision detected!")
+                return True
 
-    # 그래프 그리기
-    plt.plot(x_data, label='X-Axis')
-    plt.plot(y_data, label='Y-Axis')
-    plt.xlabel('Time')
-    plt.ylabel('Acceleration')
-    plt.legend()
-    plt.savefig('acceleration_graph.png')  # 그래프를 이미지 파일로 저장
+            accel_x_prev, accel_y_prev = accel_x, accel_y
 
-if __name__ == "__main__":
-    main()
+        print("No collision detected.")
+        return False
