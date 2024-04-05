@@ -76,7 +76,7 @@ class Acceleration():
             delta_y = abs(accel_y - accel_y_prev)
 
             # 가속도 변화량이 임계값을 초과하는지 확인
-            if delta_x > threshold or delta_y > threshold:
+            if delta_y > threshold: #or delta_y > threshold
                 print("Over!")
                 return True
 

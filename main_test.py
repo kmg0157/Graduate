@@ -33,6 +33,7 @@ def main():
 
                     time.sleep(3)
                     
+                    #accel_sensor.save_data()
                     print("socket close")
                     data="CLOSE"    #서버에 소켓이 닫혔다는 것을 알리는 메세지
                     data=data.encode('utf-8')   #데이터 인코딩
