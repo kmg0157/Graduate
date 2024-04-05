@@ -24,7 +24,7 @@ def main():
                     break
                 else:
                     write_data.save_data(decoded_data)  #전달받은 데이터 json 파일에 작성
-                    #save_db.save_data(decoded_data) #DB에 데이터 저장
+                    save_db.save_data(decoded_data) #DB에 데이터 저장
                     map_generator.read_data(decoded_data)
                     map_generator.show_map()
 

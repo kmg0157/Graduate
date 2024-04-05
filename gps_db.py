@@ -16,8 +16,8 @@ class Database:
     def save_data(self,data):
         parshed_data=json.loads(data)  #데이터 파싱
         #데이터 저장
-        insert_query = "INSERT INTO data (Sequence, Timestamp, Latitude, Longitude) VALUES (%s, %s, %s, %s)"
-        self.cur.execute(insert_query, (parshed_data["Sequence"], parshed_data["Timestamp"], parshed_data["Latitude"], parshed_data["Longitude"]))
+        insert_query = "INSERT INTO data ( Timestamp, Latitude, Longitude) VALUES ( %s, %s, %s)"
+        self.cur.execute(insert_query, ( parshed_data["Timestamp"], parshed_data["Latitude"], parshed_data["Longitude"]))
         
 
     # DB 연결 종료
