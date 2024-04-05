@@ -14,30 +14,33 @@ def main():
     client_socket=Client()  #TCP 소켓 객체 생성
     client_socket.accept()  #TCP 서버 연결 요청
 
-    #충돌 감지 시
-    if crash_sensor.crash_detection()==1: #and 가속도센서를 통한 충돌 임계값 확인
-            print("Application started!")
-            json_writer.initialize_json_file()  #json 파일 초기화 및 생성
+    accel_sensor.detect_collision()
+    print("Application started!")
+    
+    while True:
+        #충돌 감지 시
+        if crash_sensor.crash_detection() and accel_sensor.detect_collision(): #and 가속도센서를 통한 충돌 임계값 확인
+                json_writer.initialize_json_file()  #json 파일 초기화 및 생성
+                data = gps_data.get_position_data() #data 변수에 gps 데이터 저장
 
-            data = gps_data.get_position_data() #data 변수에 gps 데이터 저장
-            if data:    #데이터가 존재할 경우
-                json_data=json.dumps(data)      # 데이터 직렬화
-                client_socket.run_client(json_data.encode('utf-8')) #데이터 인코딩
-                json_writer.save_data_to_json(data) #gps 데이터를 json 파일에 저장
-                #수신한 gps 정보 출력
-                print("Sequence:", data["Sequence"], " Timestamp:", data["Timestamp"], " Latitude:", data["Latitude"], " Longitude:", data["Longitude"])
+                #데이터가 존재할 경우
+                if data:    
+                    json_data=json.dumps(data)      # 데이터 직렬화
+                    client_socket.run_client(json_data.encode('utf-8')) #데이터 인코딩
+                    json_writer.save_data_to_json(data) #gps 데이터를 json 파일에 저장
+                    #수신한 gps 정보 출력
+                    print("Sequence:", data["Sequence"], " Timestamp:", data["Timestamp"], " Latitude:", data["Latitude"], " Longitude:", data["Longitude"])
 
-                time.sleep(3)
-                
-                print("socket close")
-                data="CLOSE"    #서버에 소켓이 닫혔다는 것을 알리는 메세지
-                data=data.encode('utf-8')   #데이터 인코딩
-                client_socket.run_client(data)  # "CLOSE" 데이터 서버로 전송
-                crash_sensor.crash_cleanup()
+                    time.sleep(3)
+                    
+                    print("socket close")
+                    data="CLOSE"    #서버에 소켓이 닫혔다는 것을 알리는 메세지
+                    data=data.encode('utf-8')   #데이터 인코딩
+                    client_socket.run_client(data)  # "CLOSE" 데이터 서버로 전송
+                    crash_sensor.crash_cleanup()
+                    json_writer.close_json_file()   #json 파일 닫기
             
-
-            json_writer.close_json_file()   #json 파일 닫기
-
+                    break
 
 if __name__ == "__main__":
     main()

@@ -2,7 +2,7 @@ import socket
 
 class Client:
     def __init__(self):
-        self.host='192.168.0.7'   #서버 IP 주소
+        self.host='192.168.0.77'   #서버 IP 주소
         self.port=12345 #서버 port No.
         self.client_socket=None #클라이언트 소켓 변수
 

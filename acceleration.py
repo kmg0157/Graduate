@@ -36,7 +36,7 @@ class Acceleration():
 
         try:
             while time.time()-start_time<10:
-                self.accel_x_out,self.accel_y_out=self.read_accel()
+                self.accel_x, self.accel_y = self.read_accel()  # 수정
                 print(f"Accelerometer: X={self.accel_x}, Y={self.accel_y}")
 
                 # 데이터 저장
@@ -47,6 +47,10 @@ class Acceleration():
 
         except KeyboardInterrupt:
             pass  # Ctrl+C 입력시 종료
+
+        self.show_data()  # 그래프 표시 추가
+
+
 
     # 그래프를 이미지 파일로 저장
     def show_data(self):
@@ -59,7 +63,7 @@ class Acceleration():
 
 
     #가속도 값을 이용한 충격 감지(수정 필요)
-    def detect_collision(self,threshold=5000, duration=5):
+    def detect_collision(self, threshold=10000, duration=5):
         self.init_sensor()
         start_time = time.time()
 
@@ -73,10 +77,9 @@ class Acceleration():
 
             # 가속도 변화량이 임계값을 초과하는지 확인
             if delta_x > threshold or delta_y > threshold:
-                print("Collision detected!")
+                print("Over!")
                 return True
 
             accel_x_prev, accel_y_prev = accel_x, accel_y
 
-        print("No collision detected.")
         return False
