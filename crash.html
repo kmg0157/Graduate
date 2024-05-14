@@ -12,7 +12,7 @@
     <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
     <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_b7a86e63fe2c130d250761aef762264d {
+                #map_b1bf4057914e40142c21122b6df12a48 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,16 +39,16 @@
 <body>
     
     
-            <div class="folium-map" id="map_b7a86e63fe2c130d250761aef762264d" ></div>
+            <div class="folium-map" id="map_b1bf4057914e40142c21122b6df12a48" ></div>
         
 </body>
 <script>
     
     
-            var map_b7a86e63fe2c130d250761aef762264d = L.map(
-                "map_b7a86e63fe2c130d250761aef762264d",
+            var map_b1bf4057914e40142c21122b6df12a48 = L.map(
+                "map_b1bf4057914e40142c21122b6df12a48",
                 {
-                    center: [36.625496667, 127.45815],
+                    center: [36.6257, 127.45794],
                     crs: L.CRS.EPSG3857,
                     zoom: 18,
                     zoomControl: true,
@@ -60,28 +60,31 @@
 
         
     
-            var tile_layer_aa2622d3568a7a8879382f4c31e09550 = L.tileLayer(
-                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_b7a86e63fe2c130d250761aef762264d);
+            var tile_layer_40af87fe99b988634ced7b86612e92d0 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
         
     
-            var marker_eaf58bfc5f4fb2f5e0bb5b8589cee902 = L.marker(
-                [36.625496667, 127.45815],
+            tile_layer_40af87fe99b988634ced7b86612e92d0.addTo(map_b1bf4057914e40142c21122b6df12a48);
+        
+    
+            var marker_85992e118171d5fbf0d5bddb25d56ac5 = L.marker(
+                [36.6257, 127.45794],
                 {}
-            ).addTo(map_b7a86e63fe2c130d250761aef762264d);
+            ).addTo(map_b1bf4057914e40142c21122b6df12a48);
         
     
-        var popup_11762ed25a17b3470ede8a08f79c927f = L.popup({"maxWidth": "100%"});
+        var popup_0e25ea908f1a83a6190237d132a76bde = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_2c6dcf9616deee5ef0084cab578781a9 = $(`<div id="html_2c6dcf9616deee5ef0084cab578781a9" style="width: 100.0%; height: 100.0%;">사고 발생 위치!</div>`)[0];
-                popup_11762ed25a17b3470ede8a08f79c927f.setContent(html_2c6dcf9616deee5ef0084cab578781a9);
+                var html_3ea9b4819b031b4758d3bf6215ed5884 = $(`<div id="html_3ea9b4819b031b4758d3bf6215ed5884" style="width: 100.0%; height: 100.0%;">사고 발생 위치!</div>`)[0];
+                popup_0e25ea908f1a83a6190237d132a76bde.setContent(html_3ea9b4819b031b4758d3bf6215ed5884);
             
         
 
-        marker_eaf58bfc5f4fb2f5e0bb5b8589cee902.bindPopup(popup_11762ed25a17b3470ede8a08f79c927f)
+        marker_85992e118171d5fbf0d5bddb25d56ac5.bindPopup(popup_0e25ea908f1a83a6190237d132a76bde)
         ;
 
         

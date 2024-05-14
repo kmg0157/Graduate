@@ -7,7 +7,7 @@ class Map:
         self.locate=None        
         self.latitude=None
         self.longitude=None
-        self.save_html_file='crash.html'
+        self.save_html_file='C:/Users/kmg01/Server/Graduate/crash.html'
 
     def read_data(self,data):
         parsed_data=json.loads(data)
